@@ -52,6 +52,42 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: Colors.grey[400],
                           borderRadius: BorderRadius.circular(10.r),
                         ),
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+                          child: Row(
+                            children:[
+                              Container(
+                                height: 130.h, 
+                                width: 100.w, 
+                                decoration: BoxDecoration(
+                                  color: Colors.black, 
+                                  borderRadius: BorderRadius.circular(10.r),
+                                ), 
+                              ),
+                              SizedBox(
+                                width: 20.w,
+                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "My Text", 
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20.sp,
+                                    ),
+                                  ),
+                                  Text(
+                                    "My Text", 
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                    ), 
+                                  ),
+                                ],
+                              ), 
+                            ],
+                          ),
+                        ),
                       ),
                     );
                   },
