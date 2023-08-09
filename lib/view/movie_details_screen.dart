@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../controller/home_controller.dart';
 
+// ignore: must_be_immutable
 class MovieDetailsScreen extends StatelessWidget {
   final int index;
   MovieDetailsScreen({super.key, required this.index});
