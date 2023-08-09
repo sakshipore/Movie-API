@@ -1,7 +1,5 @@
-import 'package:movie_api/model/movie_image.dart';
-
 class Movie {
-  final MovieImage image;
+  final String image;
   final String id;
   final String title;
   final int rank;
@@ -18,7 +16,7 @@ class Movie {
   });
 
   Movie copyWith({
-    MovieImage? image,
+    String? image,
     String? id,
     String? title,
     int? rank,
@@ -37,7 +35,7 @@ class Movie {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'i': image.toMap(),
+      'i': image,
       'id': id,
       'l': title,
       'rank': rank,
@@ -48,7 +46,7 @@ class Movie {
 
   factory Movie.fromMap(Map<String, dynamic> map) {
     return Movie(
-      image: MovieImage.fromMap(map['i'] as Map<String, dynamic>),
+      image: map['i']!=null ? map['i']['imageUrl']:"",
       id: map['id'] ?? "", 
       title: map['l'] ?? "", 
       rank: map['rank'] ?? 0, 

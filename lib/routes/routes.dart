@@ -13,7 +13,8 @@ class AppRoutes {
     ),
     GetPage(
       name: RoutesNames.movieDetailsScreen, 
-      page: () => MovieDetailsScreen(),
+      arguments: int,
+      page: () => MovieDetailsScreen(index: Get.arguments),
     ),
   ];
 }
