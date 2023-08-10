@@ -4,7 +4,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class MyCard extends StatelessWidget {
   final String movieName;
   final String movieYear;
-  MyCard({super.key, required this.movieName, required this.movieYear});
+  final String image;
+  MyCard(
+      {super.key,
+      required this.movieName,
+      required this.movieYear,
+      required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +33,10 @@ class MyCard extends StatelessWidget {
                     color: Colors.black,
                     borderRadius: BorderRadius.circular(10.r),
                   ),
+                  child: Image.network(
+                    "http://image.tmdb.org/t/p/w500/$image",
+                    fit: BoxFit.fill,
+                  ),
                 ),
                 SizedBox(
                   width: 30.w,
@@ -41,7 +50,7 @@ class MyCard extends StatelessWidget {
                         movieName,
                         overflow: TextOverflow.clip,
                         style: TextStyle(
-                          fontSize: 20.sp,
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
