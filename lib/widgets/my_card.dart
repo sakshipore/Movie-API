@@ -2,22 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyCard extends StatelessWidget {
-  final String movieName;
-  final String movieYear;
+  final String titleText;
+  final String subtitleText;
   final String image;
+  final int height;
+  final int width;
   MyCard(
       {super.key,
-      required this.movieName,
-      required this.movieYear,
-      required this.image});
+      required this.titleText,
+      required this.subtitleText,
+      required this.image,
+      required this.height, 
+      required this.width,
+      });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Container(
-          height: 120.h,
-          width: 360.w,
+          height: height.h,
+          width: width.w,
           decoration: BoxDecoration(
             color: Colors.blue[100],
             borderRadius: BorderRadius.circular(10.r),
@@ -30,10 +35,17 @@ class MyCard extends StatelessWidget {
                   height: 130.h,
                   width: 100.w,
                   decoration: BoxDecoration(
-                    color: Colors.black,
+                    // color: Colors.black,
                     borderRadius: BorderRadius.circular(10.r),
                   ),
-                  child: Image.network(
+                  child: image =="" ? Placeholder(
+                    child: Center(
+                      child: Text(
+                        "No Image",
+                      ),
+                    ),
+                  ) :
+                  Image.network(
                     "http://image.tmdb.org/t/p/w500/$image",
                     fit: BoxFit.fill,
                   ),
@@ -45,9 +57,12 @@ class MyCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: 50.h,
+                      height: 15.h,
+                    ),
+                    SizedBox(
+                      width: 150.w,
                       child: Text(
-                        movieName,
+                        titleText,
                         overflow: TextOverflow.clip,
                         style: TextStyle(
                           fontSize: 15.sp,
@@ -55,8 +70,11 @@ class MyCard extends StatelessWidget {
                         ),
                       ),
                     ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
                     Text(
-                      movieYear,
+                      subtitleText,
                       style: TextStyle(
                         fontSize: 14.sp,
                         fontWeight: FontWeight.w300,

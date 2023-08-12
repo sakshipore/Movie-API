@@ -36,28 +36,36 @@ class _HomeScreenState extends State<HomeScreen> {
           child: SafeArea(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
-              child: controller.isLoading ? Center(child: CircularProgressIndicator(),):
-              Column(
-                children: [
-                  ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: controller.movies.length,
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {
-                          Get.toNamed(RoutesNames.movieDetailsScreen);
-                        },
-                        child: MyCard(
-                          movieName: controller.movies[index].originalTitle,
-                          movieYear: controller.movies[index].releaseDate,
-                          image: controller.movies[index].posterPath,
+              child: controller.isLoading
+                  ? Center(
+                      child: CircularProgressIndicator(),
+                    )
+                  : Column(
+                      children: [
+                        ListView.builder(
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemCount: controller.movies.length,
+                          itemBuilder: (context, index) {
+                            return GestureDetector(
+                              onTap: () {
+                                Get.toNamed(RoutesNames.movieDetailsScreen,
+                                    arguments: controller.movies[index].id);
+                              },
+                              child: MyCard(
+                                titleText:
+                                    controller.movies[index].originalTitle,
+                                subtitleText:
+                                    "Release date: ${controller.movies[index].releaseDate}",
+                                image: controller.movies[index].posterPath,
+                                height: 150,
+                                width: 360,
+                              ),
+                            );
+                          },
                         ),
-                      );
-                    },
-                  ),
-                ],
-              ),
+                      ],
+                    ),
             ),
           ),
         );

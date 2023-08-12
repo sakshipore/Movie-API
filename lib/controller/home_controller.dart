@@ -15,13 +15,13 @@ class HomeController extends GetxController {
       isLoading = true;
       update();
       Map<String, dynamic> result = await service.getMovies();
-      log("Length: ${result.length}");
+      // log("Length: ${result.length}");
       movies = [];
       List<dynamic> allMovies = result['results'];
       for (Map<String, dynamic> item in allMovies) {
         movies.add(Movie.fromMap(item));
       }
-      log(movies[0].originalTitle);
+      // log(movies[0].originalTitle);
     } catch (e) {
       log(e.toString());
     } finally {

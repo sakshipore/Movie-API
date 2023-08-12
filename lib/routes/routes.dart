@@ -9,13 +9,14 @@ import '../view/movie_details_screen.dart';
 class AppRoutes {
   static final routes = [
     GetPage(
-      name: RoutesNames.homeScreen, 
+      name: RoutesNames.homeScreen,
       page: () => HomeScreen(),
       binding: HomeBinding(),
-    ), 
+    ),
     GetPage(
-      name: RoutesNames.movieDetailsScreen, 
-      page: () => MovieDetailsScreen(),
+      arguments: int,
+      name: RoutesNames.movieDetailsScreen,
+      page: () => MovieDetailsScreen(id: Get.arguments),
       binding: MovieDetailsBinding(),
     ),
   ];
