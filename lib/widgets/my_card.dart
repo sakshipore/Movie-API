@@ -7,14 +7,14 @@ class MyCard extends StatelessWidget {
   final String image;
   final int height;
   final int width;
-  MyCard(
-      {super.key,
-      required this.titleText,
-      required this.subtitleText,
-      required this.image,
-      required this.height, 
-      required this.width,
-      });
+  MyCard({
+    super.key,
+    required this.titleText,
+    required this.subtitleText,
+    required this.image,
+    required this.height,
+    required this.width,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -38,17 +38,15 @@ class MyCard extends StatelessWidget {
                     // color: Colors.black,
                     borderRadius: BorderRadius.circular(10.r),
                   ),
-                  child: image =="" ? Placeholder(
-                    child: Center(
-                      child: Text(
-                        "No Image",
-                      ),
-                    ),
-                  ) :
-                  Image.network(
-                    "http://image.tmdb.org/t/p/w500/$image",
-                    fit: BoxFit.fill,
-                  ),
+                  child: image == ""
+                      ? Image.asset(
+                          "assets/images/default_image.png",
+                          fit: BoxFit.fill,
+                        )
+                      : Image.network(
+                          "http://image.tmdb.org/t/p/w500/$image",
+                          fit: BoxFit.fill,
+                        ),
                 ),
                 SizedBox(
                   width: 30.w,
